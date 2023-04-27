@@ -36,4 +36,4 @@ echo -e "\e[36m>>>>>>>>>>Install MongoD<<<<<<<<<<\e[0m"
 yum install mongodb-org-shell -y
 
 echo -e "\e[36m>>>>>>>>>>LOad schema<<<<<<<<<<\e[0m"
-mongo --host mongodb-dev.devops2023sk.online </app/schema/.js
+mongo --host mongodb-dev.devops2023sk.online </app/schema/user.js
