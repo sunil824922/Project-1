@@ -1,6 +1,6 @@
 a=10
 Name=sunil
-DATE=$(date +%F)
+DATE= $(date +%F)
 
 #Print Variables
 echo a = $a
