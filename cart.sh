@@ -1,6 +1,6 @@
 script_path=$(dirname $0)
 source ${script_path}/common.sh
-echo ${app_user}
+ useradd- ${app_user}
 exit
 
 echo -e "\e[36m>>>>>>>>>>Configiure Nodejs repos<<<<<<<<<<\e[0m"
