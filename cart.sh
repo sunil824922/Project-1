@@ -1,6 +1,6 @@
-script=${realpath "$0"}
-script_path=${dirname "$script"}
-source common.sh
+script=$(realpath "$0")
+script_path=$(dirname "$script")
+source ${script_path}/common.sh
 
 echo -e "\e[36m>>>>>>>>>>adding user<<<<<<<<<<\e[0m"
 useradd ${app_user}
@@ -33,7 +33,7 @@ echo -e "\e[36m>>>>>>>>>>Install Nodejs dependencies<<<<<<<<<<\e[0m"
 npm install
 
 echo -e "\e[36m>>>>>>>>>>Copy usersystemD file<<<<<<<<<\e[0m"
-cp ${script_path}/cart.service /etc/systemd/system/cart.service
+cp $script_path/cart.service /etc/systemd/system/cart.service
 
 echo -e "\e[36m>>>>>>>>>>restart cartservice<<<<<<<<<<\e[0m"
 systemctl daemon-reload
