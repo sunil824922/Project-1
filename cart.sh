@@ -1,6 +1,7 @@
 script=${realpath "$0"}
 script_path=${dirname "$script"}
 source common.sh
+
 echo -e "\e[36m>>>>>>>>>>adding user<<<<<<<<<<\e[0m"
 useradd ${app_user}
 
@@ -14,6 +15,8 @@ yum install nodejs -y
 
 echo -e "\e[36m>>>>>>>>>Add application user<<<<<<<<<<\e[0m"
 useradd ${app_user}
+
+exit
 
 echo -e "\e[36m>>>>>>>>>>Create application directory<<<<<<<<<<\e[0m"
 rm -rf /app
