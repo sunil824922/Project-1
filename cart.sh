@@ -1,7 +1,7 @@
 script=${realpath "$0"}
 script_path=${dirname "$script"}
 source common.sh
-
+echo -e "\e[36m>>>>>>>>>>adding user<<<<<<<<<<\e[0m"
 useradd ${app_user}
 
 exit

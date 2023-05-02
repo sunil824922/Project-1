@@ -1,1 +1,1 @@
-app_user=sunil
+app_user=suny
