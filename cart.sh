@@ -5,6 +5,7 @@ source common.sh
 useradd ${app_user}
 
 exit
+
 echo -e "\e[36m>>>>>>>>>>Configiure Nodejs repos<<<<<<<<<<\e[0m"
 curl -sL https://rpm.nodesource.com/setup_lts.x | bash
 
