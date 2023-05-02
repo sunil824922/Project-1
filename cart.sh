@@ -1,6 +1,6 @@
 script=${realpath "$0"}
 script_path=${dirname "$script"}
-source=common.sh
+source common.sh
 
 useradd ${app_user}
 
