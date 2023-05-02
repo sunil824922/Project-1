@@ -5,8 +5,6 @@ source ${script_path}/common.sh
 echo -e "\e[36m>>>>>>>>>>adding user<<<<<<<<<<\e[0m"
 useradd ${app_user}
 
-exit
-
 echo -e "\e[36m>>>>>>>>>>Configiure Nodejs repos<<<<<<<<<<\e[0m"
 curl -sL https://rpm.nodesource.com/setup_lts.x | bash
 
