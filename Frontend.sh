@@ -1,4 +1,9 @@
-echo -e "\e[36m>>>>>>>>>>Install nginx<<<<<<<<<<\e[0m"
+script=${realpath "$0"}
+
+realpath $0
+
+exit
+
 yum install nginx -y
 
 echo -e "\e[36m>>>>>>>>>>copy roboshop.comf file<<<<<<<<<<\e[0m"
