@@ -1,5 +1,5 @@
 fruit_name=mango
-quantity=$10
+quantity=$555
 if [ $fruit_name = "mango" ]
 then
 echo mango_quantity - $quantity
