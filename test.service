@@ -1,27 +1,6 @@
-##echo scriptname $0
-##echo first argument $1
-##echo second argument $2
-##echo all arguments- $*
-##echo No of arguments - $#
-
-##function_name() {
-##echo hello world
-##}
-##function_name
-
-##function_name() {
-
-##echo Frist argument=$1
-##echo second argumet=$2
-##echo All arguemnt=$*
-##echo No of arguments=$#
-
-##}
-##function_name 123 ABC
-
 fruit_name=mango
 quantity=100
 if [ "fruit_name" = "mango" ]
 then
 echo mango_quantity - $quantity
-f1
+fi
