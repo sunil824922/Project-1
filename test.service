@@ -8,3 +8,13 @@ function_name() {
 echo hello world
 }
 function_name
+
+function_name() {
+
+echo Frist argument=$1
+echo second argumet=$2
+echo All arguemnt=$*
+echo No of arguments=$#
+
+}
+function_name 123 ABC
