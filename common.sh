@@ -2,34 +2,37 @@ app_user=roboshop
 script=$(realpath "$0")
 script_path=$(dirname "$script")
 
+print_head () {echo -e "\e[35m>>>>>>>>>>$1<<<<<<<<<<\e[0m"
+}
+
 func_nodejs() {
-echo -e "\e[36m>>>>>>>>>>Configiure Nodejs repos<<<<<<<<<<\e[0m"
+print_head "Configiure Nodejs repos"
 curl -sL https://rpm.nodesource.com/setup_lts.x | bash
 
-echo -e "\e[36m>>>>>>>>>>Install Nodejs<<<<<<<<<<\e[0m"
+print_head "Install Nodejs"
 yum install nodejs -y
 
-echo -e "\e[36m>>>>>>>>>Add application user<<<<<<<<<<\e[0m"
+print_head "Add application user"
 useradd ${app_user}
 
-echo -e "\e[36m>>>>>>>>>>Create application directory<<<<<<<<<<\e[0m"
+print_head  "Create application directory"
 rm -rf /app
 mkdir /app
 
-echo -e "\e[36m>>>>>>>>>>Download app content<<<<<<<<<<\e[0m"
+print_head "Download app content"
 curl -o /tmp/${component}.zip https://roboshop-artifacts.s3.amazonaws.com/${component}.zip
 cd /app
 
-echo -e "\e[36m>>>>>>>>>>Unzip user<<<<<<<<<<\e[0m"
+print_head "Unzip user"
 unzip /tmp/${component}.zip
 
-echo -e "\e[36m>>>>>>>>>>Install Nodejs dependencies<<<<<<<<<<\e[0m"
+print_head "Install Nodejs dependencies"
 npm install
 
-echo -e "\e[36m>>>>>>>>>>Copy usersystemD file<<<<<<<<<\e[0m"
+print_head "Copy usersystemD file"
 cp $script_path/${component}.service /etc/systemd/system/${component}.service
 
-echo -e "\e[36m>>>>>>>>>>restart service<<<<<<<<<<\e[0m"
+print_head "restart service"
 systemctl daemon-reload
 systemctl enable ${component}
 systemctl restart ${component}
