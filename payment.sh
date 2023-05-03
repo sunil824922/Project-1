@@ -1,3 +1,8 @@
+script=${realpath "$0"}
+script_path=${dirname "$script"}
+source ${script_path}/common.sh
+rabbitmq_appuser_password=$1
+
 echo -e "\e[36m>>>>>>>>>>Install Python3<<<<<<<<<<\e[0m"
 yum install python36 gcc python3-devel -y
 
@@ -20,7 +25,8 @@ echo -e "\e[36m>>>>>>>>>>Download dependencies<<<<<<<<<<\e[0m"
 pip3.6 install -r requirements.txt
 
 echo -e "\e[36m>>>>>>>>>>system setupD service<<<<<<<<<<\e[0m"
-cp /home/centos/Project-1/payment.service /etc/systemd/system/payment.service
+sed -i -e "s|rabbitmq_appuser_password|${rabbitmq_appuser_password}|" $script_path/payment.service
+cp $script_path/payment.service /etc/systemd/system/payment.service
 
 echo -e "\e[36m>>>>>>>>>>start payment<<<<<<<<<<\e[0m"
 systemctl daemon-reload
