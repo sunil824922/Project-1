@@ -6,7 +6,7 @@
 
 ##function_name() {
 ##echo hello world
-}
+##}
 ##function_name
 
 ##function_name() {
@@ -16,7 +16,7 @@
 ##echo All arguemnt=$*
 ##echo No of arguments=$#
 
-}
+##}
 ##function_name 123 ABC
 
 fruit_name=mango
