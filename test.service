@@ -1,5 +1,10 @@
-echo scriptname $0
-echo first argument $1
-echo second argument $2
-echo all arguments- $*
-echo No of arguments - $#
+##echo scriptname $0
+##echo first argument $1
+##echo second argument $2
+##echo all arguments- $*
+##echo No of arguments - $#
+
+function_name() {
+echo hello world
+}
+function_name
