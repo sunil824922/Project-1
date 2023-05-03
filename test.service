@@ -1,4 +1,5 @@
-source common.sh
-
-echo -e "\e[36m>>>>>>>>>Add application user<<<<<<<<<<\e[0m"
-useradd ${app_user}
+echo scriptname $0
+echo first argument $1
+echo second argument $2
+echo all arguments- $*
+echo No of arguments - $#
