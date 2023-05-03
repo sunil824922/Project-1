@@ -1,6 +1,6 @@
 fruit_name=mango
-quantity=100
-if [ "fruit_name" = "mango" ]
+quantity=$100
+if [ $fruit_name = "mango" ]
 then
 echo mango_quantity - $quantity
 fi
