@@ -26,7 +26,7 @@ func_schema_setup() {
   func_print_head "download schema"
   mysql -h mysql-dev.devops2023sk.online -uroot -p$(mysql_root_password) < /app/schema/shipping.sql
 
-}
+ }
 
 func_app_prereq() {
   func_print_head "Add application user"
