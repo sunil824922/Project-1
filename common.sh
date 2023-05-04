@@ -23,7 +23,7 @@ func_schema_setup() {
   yum install mysql -y
 
   func_print_head "download schema"
-  mysql -h mysql-dev.devops2023sk.online -uroot -p$(mysql_root_password) < /app/schema/${component}.sql
+  mysql -h mysql-dev.devops2023sk.online -uroot -p${mysql_root_password} < /app/schema/${component}.sql
   fi
  }
 
