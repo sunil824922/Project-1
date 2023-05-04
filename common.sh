@@ -15,7 +15,7 @@ func_print_head() {
       exit 1
     fi
   }
-}
+
 func_schema_setup() {
   if [ "$schema_setup" == "mongo" ]; then
 
