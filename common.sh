@@ -15,7 +15,7 @@ func_schema_setup() {
   yum install mongodb-org-shell -y
 
   print_head "LOad schema"
-  mongo --host mongodb-dev.devops2023sk.online </app/schema/catalogue.js
+  mongo --host mongodb-dev.devops2023sk.online </app/schema/${component}.js
 
   fi
   if [ "${schema_setup}"== "mysql" ]; then
@@ -24,7 +24,9 @@ func_schema_setup() {
   yum install mysql -y
 
   func_print_head "download schema"
-  mysql -h mysql-dev.devops2023sk.online -uroot -p$(mysql_root_password) < /app/schema/shipping.sql
+  mysql -h mysql-dev.devops2023sk.online -uroot -p$(mysql_root_password) < /app/schema/${component}.sql
+
+  fi
 
  }
 
