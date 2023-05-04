@@ -6,19 +6,22 @@ func_print_head() {
   echo -e "\e[34m>>>>>>>>>>$1<<<<<<<<<<\e[0m"
 }
 
-func_status_check() {
-  if [ $1 -eq 0 ]; then
-    echo -e "\e[32mSUCCESS\e[0m"
-  else
-    echo -e "\e[31mFAILURE\e[0m"
-    exit 1
-  fi
+  func_stat_check() {
+    if [ $1 -eq 0 ]; then
+      echo -e "\e[32mSUCCESS\e[0m"
+    else
+      echo -e "\e[31mFAILURE\e[0m"
+      echo "Refer the log file /tmp/roboshop.log for more information"
+      exit 1
+    fi
+  }
 }
 func_schema_setup() {
   if [ "$schema_setup" == "mongo" ]; then
 
   print_head "copy Mongo.repo file"
   cp $script_path/mongo.repo /etc/yum.repos.d/mongo.repo
+  func_stat_check $?
   func_stat_check $?
 
   print_head "Install MongoD"
