@@ -3,37 +3,42 @@ script_path=$(dirname "$script")
 source ${script_path}/common.sh
 mysql_root_password=$1
 
-echo -e "\e[36m>>>>>>>>>>Install maven<<<<<<<<<<\e[0m"
+if [ -z "$mysql_root_password" ]; then
+  echo Input MySQL Root Password Missing
+  exit 1
+fi
+
+print_head "Install maven"
 yum install maven -y
 
-echo -e "\e[36m>>>>>>>>>>Create app user<<<<<<<<<<\e[0m"
+print_head 'Create app user'
 useradd roboshop
 
-echo -e "\e[36m>>>>>>>>>>create app user<<<<<<<<<<\e[0m"
+print_head "create app user"
 rm -rf /app
 mkdir /app
 
-echo -e "\e[36m>>>>>>>>>>Download APP content<<<<<<<<<<\e[0m"
+print_head "Download APP content"
 curl -L -o /tmp/shipping.zip https://roboshop-artifacts.s3.amazonaws.com/shipping.zip
 
-echo -e "\e[36m>>>>>>>>>>Extract app content<<<<<<<<<<\e[0m"
+print_head "Extract app content"
 cd /app
 unzip /tmp/shipping.zip
 
-echo -e "\e[36m>>>>>>>>>>Download maven dependencies<<<<<<<<<<\e[0m"
+print_head "Download maven dependencies"
 mvn clean package
 mv target/shipping-1.0.jar shipping.jar
 
-echo -e "\e[36m>>>>>>>>>>install Mysql<<<<<<<<<<\e[0m"
+print_head "install Mysql"
 yum install mysql -y
 
-echo -e "\e[36m>>>>>>>>>>download schema<<<<<<<<<<\e[0m"
+print_head "download schema"
 mysql -h mysql-dev.devops2023sk.online -uroot -p$(mysql_root_password) < /app/schema/shipping.sql
 
-echo -e "\e[36m>>>>>>>>>>setup systemd service<<<<<<<<<<\e[0m"
+print_head "setup systemd service"
 cp $script_path/shipping.service /etc/systemd/system/shipping.service
 
-echo -e "\e[36m>>>>>>>>>>restart the shipping<<<<<<<<<<\e[0m"
+print_headre "start the shipping"
 systemctl daemon-reload
 systemctl enable shipping
 systemctl restart shipping
