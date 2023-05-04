@@ -18,16 +18,13 @@ func_schema_setup() {
   mongo --host mongodb-dev.devops2023sk.online </app/schema/${component}.js
 
   fi
-  if [ "${schema_setup}"== "mysql" ]; then
-
+  if [ "${schema_setup}" ==  "mysql" ]; then
   func_print_head "install Mysql"
   yum install mysql -y
 
   func_print_head "download schema"
   mysql -h mysql-dev.devops2023sk.online -uroot -p$(mysql_root_password) < /app/schema/${component}.sql
-
   fi
-
  }
 
 func_app_prereq() {
