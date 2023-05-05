@@ -48,7 +48,10 @@ func_schema_setup() {
 
 func_app_prereq() {
   func_print_head "Add application user"
+  id ${app_user} &>>$log_file
+  if [ $? -ne 0 ]; then
   useradd ${app_user} &>>$log_file
+  fi
   func_stat_check $?
 
   func_print_head "Create application directory"
