@@ -105,6 +105,7 @@ func_systemd_setup
 func_stat_check $?
 }
 
+
 func_java() {
 func_print_head "Install maven"
 yum install maven -y &>>$log_file
