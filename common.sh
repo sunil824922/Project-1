@@ -21,15 +21,15 @@ func_print_head() {
 func_schema_setup() {
   if [ "$schema_setup" == "mongo" ]; then
 
-  print_head "copy Mongo.repo file"
+  func_print_head "copy mongo.repo file"
   cp $script_path/mongo.repo /etc/yum.repos.d/mongo.repo &>>$log_file
   func_stat_check $?
 
-  print_head "Install MongoD"
+  func_print_head "Install MongoD"
   yum install mongodb-org-shell -y &>>$log_file
   func_stat_check $?
 
-  print_head "LOad schema"
+  func_print_head "LOad schema"
   mongo --host mongodb-dev.devops2023sk.online </app/schema/${component}.js &>>$log_file
   func_stat_check $?
 
