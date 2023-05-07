@@ -1,13 +1,5 @@
-fruit_name=$1
-quantity=$2
-if [ "$fruit_name" = "mango" ]
-then
-echo mango quantity-$quantity
-fi
 
-
-if [ "$quantity" -gt 100 ]; then
-echo mango price- 0.5$
-else
-echo mango price-2$
-fi
+for fruit in apple banana orange ; do
+ echo Fruit Name - $fruit
+ sleep 1
+done
